@@ -6,7 +6,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: './src/index.js'
+    app: './src/main.js'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),

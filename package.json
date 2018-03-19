@@ -2,7 +2,7 @@
   "name": "rxjs5-basics",
   "version": "1.0.0",
   "description": "RxJS 5 tutorial",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "test": "karma start",
