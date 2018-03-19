@@ -11,7 +11,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'RxJS basics'
+      title: 'RxJS basics',
+      template: 'src/index.html'
     }),
     new webpack.NamedModulesPlugin(),
     new MiniCssExtractPlugin({
