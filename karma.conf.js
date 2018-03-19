@@ -6,17 +6,17 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '.',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
-
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.spec.js'
+      'node_modules/@babel/polyfill/dist/polyfill.js',
+      'test/**/*.spec.js'
     ],
 
 
@@ -30,9 +30,8 @@ module.exports = function(config) {
     webpack: webpackConfig,
 
     preprocessors: {
-      'test/**/*.spec.js': ['webpack']
+      'test/**/*spec*': ['webpack']
     },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -59,13 +58,21 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
 
     browserNoActivityTimeout: 60000,
 
+    plugins: [
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-phantomjs-launcher',
+      'karma-webpack',
+      'karma-babel-preprocessor'
+    ],
+
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
